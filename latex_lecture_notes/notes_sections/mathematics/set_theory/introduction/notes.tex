@@ -1,0 +1,101 @@
+\section{Introduction To Set Theory}
+
+Sets are among the most fundamental objects in mathematics. They provide a mechanism for mathematicians and engineers to concisely analyze, reference, and categorize various objects. In fact, a set is essentially an abstract container.
+
+The example below represents a very traditional way of representing sets (curly braces).
+
+\[
+ A = \{4, 6, 1, -3, 14, 99\}
+\]
+
+In the example above, a set of numbers has been created and labeled $A$. Once declared, the letter/symbol $A$ can be used to refer to this collection of values. The elements of a set can be essentially anything, including other sets. Consider the set $B$ composed of colors.
+
+\[
+ B = \{\text{blue},\; \text{red},\; \text{black}\}
+\]
+
+Set $C$ (below) is a set where the elements are also sets.
+
+\[
+ C = \{\; \{1,2,3,4,5\},\; \{\pi, 14, 2\}\;\}
+\]
+
+\subsection{Set Elements}
+
+The objects inside a set are called \textbf{elements}. Suppose $A$ is a set that contains the element $14$. This fact can be represented symbolically as $14 \in A$. Mathematics is essentially a powerful language of symbols. Mathematicians that SPEAK different languages can often communicate quite well using the symbolic language of mathematics.
+
+Compare the concise symbolic representation relative to its wordy sentence form.
+
+\[
+\underbrace{-3 \in B}_{\text{Negative three is an element of set $B$}}
+\]
+
+We often need to demonstrate that an object is not an element of a set. Suppose the number $9$ is not an element of set $A$. This would be denoted $9 \notin A$.
+
+In general, a slash through a mathematical symbol typically means you add the word ``not'' to negate the meaning.
+
+\subsection{Properties Of Sets}
+
+Sets have two fundamental properties.
+
+\begin{enumerate}
+  \item The elements inside a set do not have an order.
+	\begin{itemize}
+	  \item A set is like the spare pocket change jar in your bedroom. You use the jar like a container and you only care about the items inside it and not their arrangement. If you pick up the jar and shake it to mix up the items, you still have the same jar of objects.
+	\end{itemize}
+  \item Sets do not contain duplicates.
+	\begin{itemize}
+	  \item This can be an abstract notion but rarely needs to be complicated.
+	  \item Adding the number $3$ to the set $\{1,2,3\}$ would result in the same set $\{1,2,3\}$. The number three would not appear twice.
+	\end{itemize}
+\end{enumerate}
+
+\subsection{Methods To Represent Sets}
+
+There are 3 primary ways of representing sets.
+
+\begin{enumerate}
+  \item \textbf{Sentence Form} --- The elements of the set are basically described using sentences.
+	\begin{itemize}
+	  \item This method should be avoided if possible.
+	  \item Tends to be very wordy. May lack necessary precision.
+	  \item Example: Let $S$ be the set of whole numbers greater than or equal to twenty and less than or equal to 99.
+	\end{itemize}
+
+  \item \textbf{Roster Form} --- Similar to a classroom roster, it is an explicit list of the elements of a set.
+	\begin{itemize}
+	  \item Very easy to understand.
+	  \item Typically useful for very small sets or sets with elements that form obvious patterns.
+	  \item Ellipsis can be used only if an obvious pattern can be established.
+		\begin{itemize}
+		  \item Example: $A = \{2,3,-4,9\}$
+		  \item Example: $B = \{1,2,3,\ldots,99,100\}$
+		  \item Example: $\mathbb{N} = \{1,2,3,\ldots\}$
+		  \item Example: $\mathbb{Z} = \{\ldots,-3,-2,-1,0,1,2,3,\ldots\}$
+		  \item Bad Example: $K = \underbrace{\{1,2,5,10,17,\ldots\}}_{\text{Pattern Is Not Obvious}}$
+		\end{itemize}
+	  \item Deciding on whether to use roster form may depend on the mathematical maturity of your audience.
+		\begin{itemize}
+		  \item Example: $P = \{2,3,5,7,11,13,17,19,23,\ldots\}$ (Prime Numbers)
+		  \item Example: $T = \{1,4,9,16,25,36,49,\ldots\}$ (Perfect Squares)
+		\end{itemize}
+	\end{itemize}
+
+  \item \textbf{Set Builder Form} --- Requires the most mathematical maturity to use. However, it becomes second nature once familiar.
+	\begin{itemize}
+	  \item Resembles a food recipe. You have a list of ingredients and instructions on how to use the ingredients.
+	  \item Often used when sets need to be constructed or can be described using some form of construction.
+		\begin{itemize}
+		  \item Example:
+			\[
+			  E = \{2k \;\mid\; k \in \mathbb{W}\} = \{0,2,4,6,8,10,\ldots\}
+			\]
+			(Set of even numbers --- whole numbers that are a multiple of two)
+		  \item Example:
+			\[
+			  O = \{2k+1 \;\mid\; k \in \mathbb{W}\} = \{1,3,5,7,9,\ldots\}
+			\]
+			(Set of odd numbers --- whole numbers that are one plus a multiple of two)
+		\end{itemize}
+	\end{itemize}
+\end{enumerate}
