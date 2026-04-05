@@ -1,0 +1,170 @@
+\section*{Introduction}
+Linear equations are a powerful part of mathematics.  Their simplicity allows for very straight-forward implications.
+
+\subsection*{Linear Equations}
+A linear equation has the form $ax+b=c$ where $a,b,c \in \mathbb{R}$ are constants (do not change) and $x$ is an unknown variable. We can solve for the variable $x$ as long as the constants $a,b,c$ are known.
+$$8x+3 = -9 \implies x = -\frac{12}{8} = -\frac{3}{2}$$
+
+A linear equation will always represent one of three conditions:
+\begin{enumerate}
+    \item \textbf{No Solution} : The linear equation has no solutions and  is considered inconsistent. In this case, no value of $x \in \mathbb{R}$ will satisfy the equation.  In this case we say the set of solutions is empty and denoted $x \in \emptyset$. $$5x+3 = 5x+2 \implies x \in \emptyset$$
+    \item \textbf{Infinitely Many Solutions} : The linear equation has infinetly many solutions.  This implies than any value of $x$ will hold for the equation.  In this case, the solution set is all real numbers and is denoted $x \in \mathbb{R}$.   $$5x +2 = 5x+2 \implies x \in \mathbb{R}$$
+    \item \textbf{A Unique Solution} : The equation has exactly one solution. The solution set is represented using roster form with a single value in the set.$$8x+3 = -9 \implies x \in \left\{ -\frac{3}{2} \right\}$$
+\end{enumerate}
+
+\subsection*{System Of Linear Equations}
+Imagine a police officer  analyzing a crime. Interviewing multiple people allows the officer to gather multiple angles of view for the situation.  With enough bits of information, the officer may be able to piece together the whole story.  Systems of linear equations (SLE) provide this type of scenario in mathematics.  Each equation adds a new bit of information so that a solution can be gathered.  
+
+\subsubsection*{SLE Example}
+Suppose a person has jar of change that contains quarters, dimes, and pennies.  Here are some facts related to the jar:
+\begin{itemize}
+    \item There are 369 coins in total.
+    \item The total value of the coins is \$25.47.
+    \item The combined value of the pennies and dimes is \$13.47.
+\end{itemize}
+Let the total number of quarters, dimes, and pennies be represented by $Q$, $D$, and $P$ respectively.  We have three different pieces of information we can use to figure how many of each coin is present in the jar.  Translating this information into linear equations is the first step.
+\begin{itemize}
+    \item There are 369 coins in total $ \implies Q + D + P = 369$
+    \item The total value of the coins is \$25.47. $\implies 0.25Q + 0.10D + 0.01P = 25.47$
+    \item The combined value of the pennies and dimes is \$13.47.$ \implies 0.10D + 0.01P = 13.47$
+\end{itemize}
+
+We can combine these equations into what is called a system of linear equations (SLE).
+\begin{align*}
+    Q + D + P &= 369 \\
+    0.25Q + 0.10D + 0.01P &= 25.47 \\
+    0.10D + 0.01P &= 13.47
+\end{align*}
+
+Now we begin the process of solving the system. Notice the last equation allows us to define $D$ in terms of $P$
+$$0.10D + 0.01P = 13.47 \implies D = \frac{13.47 - 0.01P}{0.10} = 134.7 - 0.1P$$
+Everywhere $D$ is present in the OTHER equations, we can substitute the expression $134.7-0.1P$  It is not helpful to consider the last equations at the moment.  So we have the following new SLE 
+\begin{align*}
+    Q + \underbrace{(134.7-0.1P)}_{D} + P &= 369 \\
+    0.25Q + 0.10\cdot \underbrace{(134.7-0.1P)}_{D} + P &= 25.47
+\end{align*}
+
+We can combine terms to simplify the new SLE.
+\begin{align*}
+    Q + 0.9P &= 234.3 \\
+    0.25Q + 0.99P &= 12
+\end{align*}
+
+Continuing to simply the SLE, notice the first equation can solve $Q$ in terms of $P$.
+$$Q + 0.9P = 234.3 \implies Q = 234.3 - 0.9P$$
+We can replace $Q$ with the equivalent expression $234.3-0.9P$ in the second equation.
+$$0.25Q + 0.99P = 12 \implies 0.25 \cdot (\underbrace{234.3-0.9P)}_{Q}) + 0.99P =12 \implies 58.575 -0.225P=12$$
+Notice all the steps above have resulted in single linear equation of one variable $P$.  We can now solve for $P$.
+$$58.575 - 0.225P = 12 \implies P = 207$$
+
+We have concluded there are 207 pennies in the jar.  Now we can substitute the value of $P$ into one of the previous equations, specifically $0.10D + 0.01P = 13.47$.
+$$0.10D + 0.01P = 13.47 \implies 0.10D + 0.01(207) = 13.47 \implies 0.10D + 2.07 = 13.47$$
+Now we have another linear equation with one variable $D$ that we can solve for to find its value.
+$$0.10D + 2.07 = 13.47 \implies D = 114$$
+There are 114 dimes in the jar.  Now that we have a value for both $P$ and $D$ we can use these values to determine the value of $Q$ using an equation that contains $Q$.
+$$Q+D+P = 369 \implies Q + 114 + 207 = 369 \implies Q = 48$$
+We now know all the values for $Q$, $D$, and $P$.
+\begin{align*}
+    Q &= 48 \\
+    D &= 114 \\
+    P &= 207
+\end{align*}
+
+\subsection*{SLE Matrix Representation}
+In the previous example, it was cumbersome to keep writing the equations with their variables and explaining each step.  Matrices provide a much cleaner and straightforward way of solving SLEs.  First, let us establish some known facts.
+\begin{itemize}
+    \item Multiplying a linear equation by a constant does not change its solution set.
+    \item Adding two equations component-wise in a system and replacing one of the two equations with the result does not change the solution set of an SLE.
+\end{itemize}
+
+The facts above lead to what is known as row operations in Linear Algebra.
+
+\subsubsection*{Solving SLE Using Matrix Row Operations}
+Recall the system of equations in the previous example.
+\begin{align*}
+    Q + D + P &= 369 \\
+    0.25Q + 0.10D + 0.01P &= 25.47 \\
+    0.10D + 0.01P &= 13.47
+\end{align*}
+By adding zero coefficient placeholders, we can make every variable present in each equation.
+\begin{align*}
+    Q + D + P &= 369 \\
+    0.25Q + 0.10D + 0.01P &= 25.47 \\
+    0Q + 0.10D + 0.01P &= 13.47
+\end{align*}
+By arranging the variables into columns we can create a matrix representation for the SLE.  We simply put the coefficients and constants into the matrix.
+\[
+\begin{bmatrix}
+1 & 1 & 1 & 369 \\
+0.25 & 0.10 & 0.01 & 25.47 \\
+0 & 0.10 & 0.01 & 13.47
+\end{bmatrix}
+\]
+
+Using row operations we will convert the above matrix into a matrix with zeros below the main diagonal.   The row operations are enumerated below.
+\begin{enumerate}
+    \item Multiply the second row by $-\frac{1}{0.25} = -4$
+\[
+\begin{bmatrix}
+1 & 1 & 1 & 369 \\
+-1 & -0.40 & -0.04 & -101.88 \\
+0 & 0.10 & 0.01 & 13.47
+\end{bmatrix}
+\]
+\item Add the first and second rows and put the result into the second row.
+\[
+\begin{bmatrix}
+1 & 1 & 1 & 369 \\
+0 & 0.60 & 0.96 & 267.12 \\
+0 & 0.10 & 0.01 & 13.47
+\end{bmatrix}
+\]
+
+\item Multiply row three by $-\frac{0.60}{0.10} = -6$
+\[
+\begin{bmatrix}
+1 & 1 & 1 & 369 \\
+0 & 0.60 & 0.96 & 267.12 \\
+0 & -0.60 & -0.06 & -80.82
+\end{bmatrix}
+\]
+
+\item Add the second and third rows and put the result in the third row
+\[
+\begin{bmatrix}
+1 & 1 & 1 & 369 \\
+0 & 0.60 & 0.96 & 267.12 \\
+0 & 0 & 0.90 & 186.3
+\end{bmatrix}
+\]
+
+\item Multiply the third row by $\frac{1}{0.9} = 9$
+\[
+\begin{bmatrix}
+1 & 1 & 1 & 369 \\
+0 & 0.60 & 0.96 & 267.12 \\
+0 & 0 & 1 & 207
+\end{bmatrix}
+\]
+\end{enumerate}
+
+Notice the matrix above can be converted by into an SLE.  Recall that row operations do no impact the solution set.  The new SLE will have the same solution as the original SLE.
+\begin{align*}
+    Q + D + P &= 369  \\
+    0Q + 0.60D + 0.96P &= 267.13 \\
+    0Q + 0D + P &= 207
+\end{align*}
+
+Notice we already have the value $P=207$.  Simply substitute this value into the second equation.
+$0.6D + 0.96(207) = 267.13 \implies 0.6D + 198.72 = 267.13 \implies 0.6D = 68.4 \implies D = 114$
+Notice we know have the values $P=207$ and $D=114$.  Use these values in the first equation.
+$Q+D+P = 369 \implies Q + 114 + 207 = 369 \implies Q = 48$
+We know have all the values and they are the same as earlier.
+\begin{align*}
+    Q &= 48 \\
+    D &= 114 \\
+    P &= 207
+\end{align*}
+
+\subsection*{Conclusion}
+Matrices provide more than a concise way of manipulating SLEs.  In later lectures, we will see that matrix algebra (Linear Algebra) is a theory rich field of mathematics that has many uses and implications.

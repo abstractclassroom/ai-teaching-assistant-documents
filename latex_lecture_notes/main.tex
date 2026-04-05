@@ -1,0 +1,89 @@
+\documentclass{article}
+\input{course_student_info.tex}
+\usepackage[includeheadfoot, margin=0.5in,headheight=27pt]{geometry}
+\usepackage{fancyhdr,lipsum}
+\usepackage{systeme}
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{subfig}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{codebackcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{codebackcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{color, colortbl}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{positioning,shadows,arrows,shapes.geometric}
+\usepackage{xcolor}
+\pagestyle{fancy}
+\fancyhf{}% Clear header/footer
+\fancyhead[LO,LE]{
+\textbf{{\color[HTML]{cc0000}\large Instructor Info}}\\
+\instructorname\\
+\instructoremail\\
+\instructordept
+}
+\fancyhead[RO,RE]{\textbf{{\color[HTML]{cc0000}\large Course Info}}\\
+\coursename\\
+Semester : \semester\\
+\coursedept\;
+\coursenum\;
+- Section \coursesectionnum
+}
+
+\fancyhead[CO,CE]{\textbf{{\color[HTML]{cc0000}\huge\lecturetitle}\\
+{\color{blue}Updated: \lastupdated}
+}}
+\fancyfoot[LO,LE]{\includegraphics[width=2cm]{template_images/university-louisville_1129.jpg}}
+\fancyfoot[CO,CE]{Page \thepage\ of \pageref{LastPage}}
+\fancyfoot[RO,RE]{\includegraphics[width=2cm]{template_images/speed_logo.jpg}}
+\renewcommand{\headrulewidth}{0.4pt}% Default header rule
+
+
+% \fancypagestyle{noheader}{
+%   \fancyhf{}% Clear header/footer
+%   \renewcommand{\headrulewidth}{0pt}% No header rule
+% }
+\headsep = 1cm
+\setlength\parindent{0pt}
+\newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+\begin{document}
+
+    %problem 1
+    % \input{note-sections/set-theory/notes}
+    % \input{note-sections/systems-of-equations/notes}
+    % \input{note-sections/Combinatorics/notes}
+    \input{note-sections/Probability/notes}
+
+
+
+ 
+\end{document}

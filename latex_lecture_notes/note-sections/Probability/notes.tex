@@ -1,0 +1,178 @@
+\section*{Poker Probability Examples}
+A probability is often a ratio of the number of successes and total possible outcomes.  This set of lecture notes will demonstrate how to calculate the probability of each of the hands in poker.  We assume a player is dealt 5 cards randomly and the player does not have the opportunity to switch cards.  The game is kept simple for instruction purposes. \\
+
+
+\subsection*{Number Of Possible Hands}
+There are 52 cards in a deck and a player will be dealt 5 cards.  It does not matter which order cards are dealt to a player.  They can be given to the player one at a time or as a group of 5.  Given order does not matter, this implies we will appeal to a binomial coefficient.  The number of total possible ways 5 cards can be dealt to a player is given below.
+$$\binom{52}{5} = 2598960$$
+
+\subsection*{Poker Card Overview}
+Below is a break down of the cards in a standard 52 card set.
+\begin{itemize}
+    \item There are 4 suits (Hearts, Clubs, Spades, and Diamonds)
+    \item There are 13 kinds in a suit (2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King, and Ace)
+    \item Each card has a suit and a kind.  The suit and kind is enough to uniquely identify a card (e.g. $4 \cdot 13 = 52$)
+\end{itemize}
+
+\subsection*{Probability Of Each Hand}
+The sections below demonstrate how to calculate the probability of being dealt each of the differently ranked poker hands.  The descriptions are brief to keep the lecture notes simple.
+
+\subsubsection*{A Pair}
+A pair is a set of 5 cards where two cards have the same kind. 
+\begin{itemize}
+    \item There are $\binom{13}{1}$ ways to choose the first kind for the pair.
+    \begin{itemize}
+        \item Since the pair share the same kind, they must come from two different suits.  Each kind has 4 suits so there are $\binom{4}{2}$ ways to select two suits.
+    \end{itemize}
+    \item The other three cards must have a different kind and different from the pair.  Given that one kind has been selected above, there are 12 remaining kinds.  We need to select 3 different ones.  There are $\binom{12}{3}$ ways to select the kinds for the remaining three cards.
+    \begin{itemize}
+        \item Each of the three cards must have a suit.  Since they are distinct kinds from each other, each of them has 4 possible suits. 
+    \end{itemize}    
+\end{itemize}
+Combining the information detailed above, the expression below calculates the number of possible ways a pair can be formed with 5 cards.
+$$\binom{13}{1} \cdot \binom{4}{2} \cdot \binom{12}{3} \cdot 4^3 = 13 \cdot 6 \cdot 220 \cdot 64 = 1098240$$
+
+The probability of being dealt a pair is given below.
+$$P = \frac{1098240}{2598960} \approx 0.422569$$
+
+\subsubsection*{Two Pair}
+Similar to the above hand except there are two pairs.
+\begin{itemize}
+    \item Two different kinds are present to form the two pairs.  There are $\binom{13}{2}$ ways to select 2 kinds.
+    \begin{itemize}
+        \item The first pair must have different suits so there are $\binom{4}{2}$ ways for first pair to have different suits.
+        \item The second pair must also have different suits so there are $\binom{4}{2}$ ways for the second pair to have different suits.
+    \end{itemize}
+    \item The remaining card must have a different kind that the previous two pairs.  This means there are 11 options for the kind of the final card.
+    \begin{itemize}
+        \item The remaining card must have a suit and so there are $4$ ways to select a suit for the final card.
+    \end{itemize}
+\end{itemize}
+The expression below represents the number of ways a hand can represent two pairs.
+$$\binom{13}{2} \cdot \binom{4}{2} \cdot \binom{4}{2} \cdot 11 \cdot 4 = 78 \cdot 6 \cdot 6 \cdot 11 \cdot 4 = 123552$$
+The probability of being dealt a two pair hand is given below.
+$$P = \frac{123552}{2598960} \approx 0.047539$$
+
+\subsubsection*{Three Of A Kind}
+In this case, three cards have the same kind.
+\begin{itemize}
+    \item There are $\binom{13}{1}$ ways to choose the  kind for the triple.
+    \begin{itemize}
+        \item Since the triple share the same kind, they must come from three different suits.  Each kind has 4 suits to choose from. There are $\binom{4}{3}$ ways to select three suits.
+    \end{itemize}
+    \item The other  two cards must have a different kind and different from the pair.  Given that one kind has been selected above, there are 12 remaining kinds.  We need to select 2 different ones.  There are $\binom{12}{2}$ ways to select the kinds for the remaining two cards.
+    \begin{itemize}
+        \item Each of the two cards must have a suit.  Since they are distinct kinds from each other, each of them has 4 possible suits. 
+    \end{itemize}    
+\end{itemize}
+Combining the information detailed above, the expression below calculates the number of possible ways a three of a kind can be formed with 5 cards.
+$$\binom{13}{1} \cdot \binom{4}{3} \cdot \binom{12}{2} \cdot 4^2 = 13 \cdot 4 \cdot 66 \cdot 16 = 54912$$
+
+The probability of being dealt a pair is given below.
+$$P = \frac{54912}{2598960} \approx 0.02113$$
+
+\subsubsection*{Full House}
+A full house is where three cards share a kind and two cards share another kind.
+\begin{itemize}
+    \item There are $\binom{13}{1}$ ways to choose the  kind for the triple.
+    \begin{itemize}
+        \item Since the cards of the triple share the same kind, they must come from three different suits.  Each kind has 4 suits so there are $\binom{4}{3}$ ways to select three suits.
+    \end{itemize}
+    \item The pair must have a kind different from the triple.  Given that one kind has been selected above, there are 12 remaining kinds.  
+    \begin{itemize}
+        \item Each of the two cards of the pair must have a suit.  Since they are the same kind, there are $\binom{4}{2}$ ways to select their suits. 
+    \end{itemize}    
+
+\end{itemize}
+Combining the information detailed above, the expression below calculates the number of possible ways a full house can be formed with 5 cards.
+$$\binom{13}{1} \cdot \binom{4}{3} \cdot 12 \cdot \binom{4}{2} = 13 \cdot 4 \cdot 12 \cdot 6 = 3744$$
+
+The probability of being dealt a pair is given below.
+$$P = \frac{3744}{2598960} \approx 0.001441$$
+
+\subsubsection*{Four Of A Kind}
+Four cards share the same kind.
+\begin{itemize}
+    \item There are $\binom{13}{1}$ ways to choose the  kind for the four cards sharing the same kind.
+    \begin{itemize}
+        \item Since the four cards share the same kind, they must come from four different suits.  Each kind has 4 suits so there are $\binom{4}{4}$ ways to select four suits.
+    \end{itemize}
+    \item The remaining card must have a kind different from the four above.  Given that one kind has been selected above, there are 12 remaining kinds.  
+    \begin{itemize}
+        \item There are 4 possible suits for the remaining card. 
+    \end{itemize}    
+
+\end{itemize}
+Combining the information detailed above, the expression below calculates the number of possible ways a full house can be formed with 5 cards.
+$$\binom{13}{1} \cdot \binom{4}{4} \cdot 12 \cdot 4 = 13 \cdot 1 \cdot 12 \cdot 4 = 624$$
+
+The probability of being dealt a pair is given below.
+$$P = \frac{624}{2598960} \approx 0.000240096$$
+
+\subsection*{Straights and Flushes}
+Straights and flushes require special attention for the following reasons
+\begin{itemize}
+    \item A straight is actually a hand where the cards form a sequence (e.g. 2,3,4,5,6).  However, a regular straight excludes royal flushes and straight flushes.
+    \item A flush is 5 cards of the same suit.  However, a regular flush excludes straight flushes and royal flushes.
+\end{itemize}
+As such we need to calculate hands in a different order so they can be excluded from counts of other lesser hands.
+
+\subsubsection*{Royal Flush}
+A royal flush means all cards are the same suit and the sequence is 10, jack, queen, king, and ace.  This does not require much calculation.  Obviously there are only 4 possibilities.
+The probabiliy of a royal flush is given by the expression below.
+$$P = \frac{4}{2598960} \approx 0.00000153907$$
+
+\subsubsection*{Straight Flush}
+A straight flush means all cards are the same suit and form a sequence.  An ace can be the starting card (less than two) or the final card (greater than king).  Since 5 cards must be in the sequence, the lowest card possible for a 5 card sequence must be a 10 (e.g. 10, jack, queen, king, ace).  This means all other cards can be the starting sequence and there are 10 such cards (e.g. ace, 2, 3,...,9,10).   There are 10 such starting cards for a sequence and 4 suits.  This implies there are 40 ways to get a Straight Flush.  However, a royal flush is a better hand and must be excluded.  The number of ways to get a straight flush is given below. 
+$$4 \cdot 10 - 4 = 36-4 = 40$$
+The probability of getting a straight flush is given by the expression below.
+$$P = \frac{36}{2598960} \approx 0.00001385169$$
+
+\subsubsection*{Flush}
+A flush means all 5 cards have the same suit.  
+\begin{itemize}
+    \item There are $4$ ways to select the suit for the flush.
+    \item There are $\binom{13}{5}$ ways to select 5 cards from a suit of 13.
+\end{itemize}
+Combining the information detailed above, the expression below calculates the number of possible ways a flush can be formed with 5 cards (counting royal flushes and straight flushes).
+$$4 \cdot \binom{13}{5} = 4 \cdot 1287 = 5148$$
+However, a royal flush and a straight flush should not be counted.  As such they must be subtracted.  The value below represents the actual number of ways a poker flush can be achieved (excluding royal flushes and straight flushes)
+$$5108 - 36 - 4 = 5108$$
+The probability of being dealt a pair is given below.
+$$P = \frac{5108}{2598960} \approx 0.00196540154$$
+
+\subsubsection*{Straight}
+A straight means the cards form a sequence.
+An ace can be the starting card (less than two) or the final card (greater than king).  Since 5 cards must be in the sequence, the lowest card possible for a 5 card sequence must be a 10 (e.g. 10, jack, queen, king, ace).  This means all other cards can be the starting sequence and there are 10 such cards (e.g. ace, 2, 3,...,9,10).  Each of the 5 cards can be any of the four suits.  
+\begin{itemize}
+    \item There are 10 ways to begin the sequence.
+    \item Each of the 5 cards can be any of the four suits.  This implies $4^5$
+\end{itemize}
+The expression below represents the number of ways a straight can be dealt (including straight and royal flushes).
+$$10 \cdot 4^5 = 10240$$
+However, we must exclude straight flushes.  The actual number of straights in a poker game (excluding straight flushes and royal flushes) is given by the expression below.
+$$10240 - 36-4 = 10200$$
+The probability of being dealt a pair is given below.
+$$P = \frac{10200}{2598960} \approx 0.00392464678$$
+
+\newpage 
+\section*{Summary}
+Below is a table that summarizes the values calculated above.
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|c|r|}
+    \hline
+        \textbf{Hand Label} & \textbf{Count} & \textbf{Probability} \\ \hline \hline
+        Pair                &  1098240   & 0.422569\\ \hline
+        Two Pair            &  123552      & 0.047539 \\ \hline
+        Three Of A Kind     &  54912   &  0.02113\\ \hline
+        Straight            & 10200 & 0.00392464678 \\ \hline   
+        Flush               & 5108 & 0.00196540154\\ \hline        
+        Full House          &  3744  &  0.001441 \\ \hline
+        Four Of A Kind      &  624  &  0.00240096\\ \hline
+        Straight Flush      &  36 & 0.00001385169\\ \hline
+        Royal Flush         &  4 & 0.00000153907 \\ \hline
+    \end{tabular}
+    \caption{Summary Of Poker Hands}
+    \label{tab:my_label}
+\end{table}

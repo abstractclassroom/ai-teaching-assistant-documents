@@ -1,0 +1,215 @@
+\section*{Mathematical Set Theory}
+
+Set theory is a very important concept in engineering, especially in computer engineering, because of the clarity and precision it adds to discussions.  Learning to become an effective engineer entails learning the necessary skills and the ability to communicate with concise precision.  Set theory allows an engineer to clearly define a scope (also known as a domain) and identify which elements are in the context of a discussion. 
+
+\subsection*{Examples and Lecture Video}
+The link below provides a lecture video with examples.\\\\
+\url{https://youtu.be/4wg0FVyxmi4}
+
+\subsection*{Properties of A Set}
+Imagine a set is like the spare coin container you have on your dresser at home.  Everyday you come home and empty your pockets into the container.  There is no order to what is inside the container. If you shake the container, the contents of the container does not change. No item is perfectly identical to any other item in container (no duplicates).   Below is a list of fundamental properties associated with sets.
+\begin{itemize}
+    \item \textbf{Container } : A set is just a container that holds mathematical objects. The objects inside the container can be abstract.  The container can be empty.
+    \item \textbf{No Order} : A set can contain anything, including things that are not related and can not be well-ordered.  As such, elements inside a set have no order.  Elements inside a set can be rearranged without effecting the set.
+    \item \textbf{No Duplicates} : A set can not contain duplicates.  Adding the number 3 to a set that already contains the number 3 will result in the number 3 appearing only once in the set.
+\end{itemize}
+
+\subsection*{Representing Sets}
+Sets can be defined in several ways.
+\begin{itemize}
+    \item \textbf{Sentence Form : } Sets can be described using a sentence.
+        \begin{itemize}
+            \item Advantages : Describing sets verbally requires little knowledge of set theory and is appropriate for audiences not concerned about precise details. 
+            \item Disadvantages : Verbally describing a set often lacks precision.  Adding precision requires a significant number of words and may be hard to follow all the conditions.
+            \item Example : \emph{Let $A$ represent the set of positive numbers that are evenly divisible by the number 7.}
+        \end{itemize}
+    \item \textbf{Roster Form : } Similar to a course roster explicitly lists all the students in a class, roster form itemizes the elements of a set.
+        \begin{itemize}
+            \item Advantages : Simple to construct and easy to digest for people not familiar with advanced mathematics.  Depsite sets having no order, elements of a set \textbf{CAN} be arranged in an order to establish a pattern for an infinite set.
+            \item Disadvantages : Some infinite sets do not follow a known pattern (e.g. prime numbers). Some sets include complicated objects that are difficult to explicitly list (e.g. rational numbers).
+            \item Examples :  
+                \begin{itemize}
+                    \item Finite Example : $A = \{1,8,3,20,13\}$
+                    \item Infinite Example : $B = \{2,4,6,8,...\}$ - Notice a pattern was established and the elipsis (...) implies the pattern continues.
+                \end{itemize}
+        \end{itemize}    
+        
+    \item \textbf{Set-Builder Notation : } Some sets require that the elements be constructed or calculated.  Set builder notation establishes a method for constructing the elements of a set. Think of set-builder notation as a recipe for a dessert.  One part of the recipe contains the required ingredients and the other part describes how to use the ingredients to make the dessert.   
+        \begin{itemize}
+            \item Advantages : Provides a mechanism to precisely define sets with complex elements.
+            \item Disadvantages : Requires some extra thought and time to understand. Often only suitable for people with strong mathematical backgrounds.
+            \item Examples :  
+                \begin{itemize}
+                    \item Consider the roster form of set $T = \{5,38,71,104,...\}$.  This set does follow a pattern but it is hard to figure out.  Roster form is a poor choice to represent set $T$.  Every value of set $T$ is calculated using the expression $33\cdot x +5$ where the values of $x$ come from the set $\{0,1,2,...\}$.  If we simply provide the express, members of our audience can simply calculate as many elements of set $T$ as they want.  They can even deduce whether a value is an element of set $T$.  Set $T$ can be described very concisely using set builder notation.
+                    $$\{33 \cdot x + 5 \mid x \in \{0,1,2,3,...\}\}$$
+                    We read this notation in the following way : \\\\\emph{Let $T$ be the set of numbers having the form $33 \cdot x + 5$ where (or such that) $x$ is a value from the set $\{0,1,2,...\}$}.\\\\The vertical bar should read as \emph{where} or \emph{such that}.  The left side of the vertical bar represents the \emph{instructions} for how to build our set and the right side of the vertical bar represents the \emph{ingredients} for constructing the set. Together, they form the \emph{recipe} for our set.
+                    $$\underbrace{\{\underbrace{33 \cdot x + 5}_{\text{Instructions}} \mid \underbrace{x \in \{0,1,2,3,...\}}_{\text{ingredients}}\}}_{\text{recipe}}$$
+                    While not always possible, we can convert this set from set-builder form to roster form as shown below.
+                    \begin{align*}
+                    \{33 \cdot x + 5 \mid x \in \{0,1,2,3,...\}\} &=\{ \overbrace{\underbrace{33\cdot 0 + 5}}^{x=0}_{5},\; \overbrace{\underbrace{33\cdot 1 + 5}}^{x=1}_{38},\;\overbrace{\underbrace{33\cdot 2 + 5}}^{x=2}_{71},\;\overbrace{\underbrace{33\cdot 3 + 5}}^{x=3}_{104},\; \overbrace{\underbrace{33\cdot 4 + 5}}^{x=4}_{137},\;...\}\\\\
+                    &= \{5,38,71,104,137,...\}
+                    \end{align*}
+                \end{itemize}
+        \end{itemize}  
+\end{itemize}
+
+\subsection*{Elements Of  A Set}
+Objects in a set can be physical or abstract.  They may be values, colors, constructed mathematically objects, or combinations of many unrelated items.  Objects in a set are called \textbf{elements}.   If an item is contained inside a set we use the symbol $\in$ to denote its containment.  Below is an example of a simple roster form set.
+$$A = \{1,2,3,4,5\} \implies 4 \in A$$
+Items that are not in the set can be denoted using $\notin$.
+$$A = \{1,2,3,4,5\} \implies 7 \notin A$$
+When referring to multiple elements in a set, we can use the same symbol in combination with commas.
+$$A = \{1,2,3,4,5\} \implies 2,3 \in A \;\;\; \text{similarly} \;\;\; 8,10 \notin A$$
+
+\subsection*{The Empty Set}
+The empty is a very famous and important set.  It is the set that contains no elements.  You hear mathematicians often refer to it as \emph{THE Empty Set} because any set that is empty set is equivalent to any other empty set and so there is effectively only one.  The empty set can be denoted using one of two ways:
+\begin{itemize}
+    \item \textbf{Modern Representation $\emptyset$ : }  The modern way to represent the empty set is to use the symbol $\emptyset$.  Notice that it is \textbf{NOT} the same as a zero and should not be confused with zero.  It is a totally different symbol. It looks like a zero with a slash through it (edges of slash partially extending beyond the zero).
+    \item \textbf{Classic Representation $\{\}$ :} Many mathematicians use this notation.  It was used more commonly before computers presented new ways of displaying pretty print fonts.  This notation is a bit more intuitive because it looks like roster form with no elements in the set.
+\end{itemize}
+Once you declare a set, you have created a container.  The empty set is simply a container (it is a set) with nothing in it.  The empty set may appear trivial, but it can imply some very strange properties in mathematics. You will be introduced to a few of them.
+
+\subsection*{Cardinality Of A Set}
+The cardinality of a set is simply the number of elements inside a set.  It is denoted using the absolute value bars.  Below are some examples.
+\begin{align*}
+    &A = \{1,2,3,4,5\} \implies |A| =- 5 \\
+    &B = \{3,8,1,0,14,11,56 \} \implies |B| = 7\\
+    &C = \{1,2,...,99,100\} \implies |C|=100
+\end{align*}
+Recall that some sets are infinite and so their cardinality is not a number.  We denote the cardinality of those sets as $\infty$
+$$A = \{1,2,3,...\} \implies |A| = \infty$$
+The empty set has a cardinality of zero.  This probably was the inspiration behind the modern symbol.
+$$|\emptyset| = 0 \;\;\;\; \text{and} \;\;\;\;|\{\}| = 0$$
+
+\subsection*{Subsets}
+A subset is simply a set that is created using elements from another set.  Suppose set $A$ is a subset of set $B$.  We denote this relationship  symbolically as $A \subset B$
+This means that every element inside $A$ is also an element of $B$.  The reverse does not hold.  Set $B$ may contain elements that are not in set $A$.  In some cases you will hear $B$ referred to as a superset of $A$, but it is much more common to say \emph{set $A$ is a subset of set $B$}.
+\subsubsection*{Example}
+Define sets $S$ and $T$ as shown below.
+\begin{align*}
+    S &= \{1,2,3,4,5,6,7,8,9,10\}\\
+    T &= \{2,4,6,10\}
+\end{align*}
+Notice that every value inside set $T$ is also an element of set $S$.  Therefore, set $T$ is a subset of $S$ and is denoted $T \subset S$.
+\subsubsection*{Automatic Subsets}
+Every set will have two automatic subsets.
+\begin{itemize}
+    \item \textbf{The Set Itself} : Every subset is automatically a subset of itself.  Consider set $A = \{1,2,3,4,5\}$.  Obviously everything in $A$ is in $A$ and so $A \subset A$.  This is automatically true for all sets without exception.  To be clear and to mention it explicitly, $\emptyset \subset \emptyset$.
+    \item \textbf{The Empty Set} : The empty set $\emptyset$ is always a subset.   This is a vacuously true statement.
+\end{itemize}
+
+A vacuously true statement is one that is true because the alternative creates a contradiction. This probably needs an explanation.  Consider the set $A = \{1,2,3,4,5\}$.  Either $\emptyset \subset A$ is true or $\emptyset \not\subset A$ is true.  There is no gray area with a true or false question and we must select one as the answer.  If we assume that $\emptyset \subset A$ is a true statement, it feels awkward because $\emptyset$ does not contain anything.  It is awkward, but does not lead to an obvious contradiction.  However, assume that $\emptyset \not\subset A$ is a true statement, meaning the $\emptyset$ is \textbf{not} a subset of $A$. Assuming $\emptyset \not\subset A$ creates a problem because it implies $\emptyset$ must contain and element that is not in set $A$.  This is a contradiction because $\emptyset$ by definition contains nothing.  The only assumption made was that the empty set $\emptyset$ is not a subset of $A$ and it lead to a contradiction.  As a result, it must be the case that $\emptyset$ is a subset of $A$.   It is vacuously true because the alternative (assume it is not true) leads to a contradiction.    There was nothing special about set $A$ in this argument.  The same argument would hold for any arbitrary set.  The empty set is always a subset...even of itself.
+
+\subsubsection*{Example}
+Define sets $R$ and $W$ as shown below.
+\begin{align*}
+    R &= \{\text{red}, \text{green}, \text{blue}, 14, 99\}\\
+    W &= \{14, 99, \text{red}, \text{orange}\}
+\end{align*}
+Notice that \textbf{14, 99, red} are elements of $R$.  However, $W$ also contains \textbf{orange} and \textbf{orange} is not an element of set $R$.  In this case, we say that $W$ is \textbf{NOT} a subset of $R$.  This is denoted as $W \not\subset R$.
+
+\subsection*{Unions and Intersections}
+Sets are often constructed using other sets.  Below are two common tools for creating new sets from other sets.
+\begin{itemize}
+    \item \textbf{Union : }  To denote the union of sets $A$ and $B$ we use $A \cup B$.  This means to combine the elements of the sets into a single new set (remember there are no duplicates). The union will contain all the values that are in $A$  \textbf{OR} $B$.
+    \item \textbf{Intersection : } To denote the intersection of sets $A$ and $B$ we use $A \cap B$.  This means to collect all the elements that are in \textbf{BOTH} sets and put them into a new set. The intersection will contain all the values that are in $A$ \textbf{AND} $B$.
+\end{itemize}
+
+\subsubsection*{Union Examples}
+Consider the following union examples and remember that sets do not contain duplicates
+\begin{itemize}
+    \item Let $A = \{1,3,65,8\}$ and $B = \{1,8,2,13,9\}$. This means $A \cup B = \{1,3,65,8,2,13,9\}$.
+    \item Let $A$ be any arbitrary set.  It must the case that  $A\cup A = A$.
+    \item Let $A$ be any arbitrary set.  Obviously $A \cup \emptyset = A$.
+\end{itemize}
+
+\subsubsection*{Intersection Examples}
+Consider the following intersection examples
+\begin{itemize}
+    \item Let $A = \{1,3,65,8\}$ and $B = \{1,8,2,13,9\}$. This means $A \cap B = \{1,8\}$.
+    \item Let $A = \{1,2,3,4,5\}$ and $B = \{6,7,8,9\}$. Then $A\cap B = \emptyset$.
+    \item Let $A$ be any arbitrary set.  It must the case that  $A\cap A = A$.
+    \item Let $A$ be any arbitrary set.  Obviously $A \cap \emptyset = \emptyset$.
+\end{itemize}
+
+\subsection*{Domains and Complements}
+The the complement of a set is easily stated.  The complement of a set is a new set that contains everything else.  To demonstrate, define $A$ to be  $A = \{1,2,3,4,5\}$.  The complement of $A$ is denoted $A^c$.  $A^c$ will contain everything that is not in set $A$.  Without further clarification, the set $A^c$ is a ridiculous set to consider.  Obviously it will contain values like $7$ and $13$ but it might also contain the moon, the cars in the parking lot, the thoughts in your mind (good and bad), your actual mind, the curtains in your house, your entire house, the hydrogen atoms in a distant galaxy, the weird mathematical objects that have never been considered.... and the silly list of potential elements continues. 
+
+\subsubsection*{Always Be Mindful Of A Domain (context)}
+Engineers and mathematicians love precision (some more than others).  A clear scope must be agreed upon before every discussion.  
+\begin{itemize}
+    \item Certain medications only treat certain variations of illness for a specific set of people.
+    \item The color blue can cover a wide span of colors.
+    \item The word attractive is often subjective among friends.
+\end{itemize}
+Subjective scope can be the death of a lot of ideas and arguments.  Without warning, a presentation by an engineer can degenerate into a clumsy discussion about irrelevant ideas.  However, if the scope is well-defined, then a discussion can be meaningful and productive.  Complements can never be considered unless a domain or context has been defined.
+
+\begin{itemize}
+    \item A teacher asks a child to pick a number between 1 and 10 and the child responds with $\pi \approx 3.141592....$ and continues saying numbers till the teacher screams.
+    \item A supervisor asks a web developer to make the background blue and so the developer sets the RGB value to  (1,1,254) instead of (0,0,255). Can anyone really tell the difference?
+\end{itemize}
+
+\subsubsection*{Be Precise About Domains - Use Set Theory}
+Define the domain $D = \{1,2,3,4,5,6,7,8,9,10\}$ and let $A = \{2,4,6,8,10\}$.  Notice that a domain (context) has been defined.  As far as this discussion or example is concerned, nothing outside the domain should be considered.  Now the complement of $A$, denoted $A^c$, is meaningful and is the set $A^c = \{1,3,5,7,9\}$.  
+\newpage
+\subsection*{Famous Infinite Sets}
+Some sets you should simply know by heart.  This section is dedicated to those sets because they appear in literature and specification documents.
+
+\subsubsection*{Domain Of Real Numbers}
+Below are the famous subsets of Real Numbers.
+\begin{itemize}
+    \item \textbf{Whole Numbers : }
+        \begin{itemize}
+            \item Symbol : $\mathbb{W}$
+            \item Roster Form Representation : $\{0,1,2,3,4,...\}$
+            \item Comment : This is not commonly seen.  When it is used, authors will often remind readers that $\mathbb{W}$ represents the whole numbers and that it contains zero.
+        \end{itemize}
+    \item \textbf{Natural Numbers : }
+        \begin{itemize}
+            \item Symbol : $\mathbb{N}$
+            \item Roster Form Representation : $\{1,2,3,4,...\}$
+            \item Comment : This set is commonly referred to in literature and project specifications. The name comes from \emph{natural counting numbers} because we typically enumerate items starting with the number 1.
+        \end{itemize}      
+    \item \textbf{Integers : }
+        \begin{itemize}
+            \item Symbol : $\mathbb{Z}$
+            \item Roster Form Representation : $\{...-2,-1,0,1,2,...\}$
+            \item Comment : Every computer science and engineering student should know this set.
+        \end{itemize}              
+    \item \textbf{Rationals Numbers : }
+        \begin{itemize}
+            \item Symbol : $\mathbb{Q}$
+            \item Set-Builder Form Representation : $\left\{ \frac{a}{b} \mid a,b \in \mathbb{Z} \;,\; b \neq 0\right\}$
+            \item Comment : This is the set of real numbers whose decimal representation either terminates or forms a repeating pattern such as $\frac{1}{4}=0.25$ or $\frac{2}{3} = 0.66666...$.  It would be difficult to find a concise way to create a pattern to describe this set.  As such, roster form would not be a good choice.  However, rational numbers are effectively all the values that are the fraction of two integers.  This provides a solid way to describe the set using set-builder notation.  
+            \item Comment On Elements :  Notice that $\mathbb{Z} \subset Q$.  Every integer is a rational number because the integer can represented as a fraction with the number 1 as the denominator ($3 = \frac{3}{1} \in Q$).
+        \end{itemize}      
+    \item \textbf{Irrational Numbers : }
+        \begin{itemize}
+            \item Symbol : $\mathbb{Q}^c$
+            \item Comment : Every real number is either rational or irrational.  By defining our domain to be the set of real numbers the irrationals are the complement to the set of rationals.   These are all the values that cannot be expressed as a fraction of two integers (decimals never terminate or form a repeating pattern).  Famously $\pi \in \mathbb{Q}^c$.  These values can only be represented symbolically.  Decimal representations can only approximate them.
+        \end{itemize}   
+    \item \textbf{Real Numbers : }
+        \begin{itemize}
+            \item Symbol : $\mathbb{R}$
+            \item Comment : $\mathbb{Q} \cup \mathbb{Q}^c = \mathbb{R}$
+        \end{itemize}        
+\end{itemize}
+\newpage 
+
+\subsubsection*{Domain of Complex Numbers}
+At one point in history, mathematicians discovered there were some holes in algebraic structures.  There appeared to be some instances where something else must be at play in order to complete the picture.  The imaginary unit, denoted as $i$, is the solution to the equation $x^2+1 = 0$. No real number can solve this equation.  By expanding the domain to include complex numbers, mathematics takes a more complete picture. There is only one point of infinity ($\infty$) instead of two ($\infty$ and $-\infty$) as with the set of real values. Certain integrals can be solved using complex analysis.   Below is how the set of complex numbers, denoted $\mathbb{C}$, is defined.
+$$\mathbb{C} = \{ a + bi \mid a,b\in \mathbb{R}\}$$
+
+\subsubsection*{Subset Relationship}
+Below represents an important subset chain relationship among the famous infinite sets.
+$$\mathbb{N} \subset \mathbb{W} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$$
+Notice the above does not contain the set of irrational numbers $\mathbb{Q}^$
+$$\mathbb{Q}^c \subset \mathbb{R} \subset \mathbb{C}$$
+The Real numbers $\mathbb{R}$ can be broken down into other subsets. These sets are out of scope for basic set theory, but a few are provided for the curious.
+\begin{itemize}
+    \item Algebraic Numbers : Values that are the roots of polynomials having integer coefficients. Values like $\sqrt{2}$.
+    \item Transcendental Numbers : Values like Euler's constant $e$ and $\pi$ fall into this category. These are not algebraic values.
+\end{itemize}
+
+\newpage 
+\input{note-sections/set-theory/contributions}

@@ -1,0 +1,147 @@
+\section*{Combinatorics}
+Combinatorics is a branch of mathematics that is dedicated toward \emph{counting} objects.  While this may seem like a straightforward task, combinatorics is one of the most theory rich branches of mathematics.  Students often find the basic tools of combinatorics to be a little confusing at first.  However, mastering the ability to count sets (combinations) is an invaluable skill for engineers and pure mathematicians. 
+\\
+
+When counting sets it is important to keep the following questions in mind.
+\begin{itemize}
+    \item Does order matter?
+    \item Can items be used more than once?
+    \item Are items being counted more than once?
+\end{itemize}
+
+The next few subsections provide an overview of general formulas and tools that mathematicians and engineers use to count sets (combinations).
+
+\subsection*{Exponents (PIN)}
+Exponents are often used in situations where objects are allowed to be used more than once.  Consider a personal identification number (PIN) used to gain access to a cell phone.  The access PIN is a sequence of digits composed of the number 0 through 9. Let $d_1,d_2,d_3,d_4$ represent the first, second, third, and fourth digits of a PIN respectively.   This can be represented using set notation as $d_1,d_2,d_3,d_4 \in \{0,1,2,...,9\}$. Since order matters with a PIN, a specific combination can be represented as an ordered tuple (e.g. $(1,2,3,4)$). Let $S$ be the set of all possible PIN numbers.
+$$S = \{(0,0,0,0), (0,0,0,1), (0,0,0,2),...,(0,0,1,0),(0,0,1,1),(0,0,1,2)...,(0,9,9,9),(1,0,0,0),(1,0,0,1),...(9,9,9,9)\}$$
+The individual tuples of set $S$ have an order. Since $S$ is a set it has not order.  However, the elements of $S$ have been arranged so they form a pattern that helps  identify a pattern to calculate the cardinality of set $S$ denoted as $|S|$. Recall the cardinality is simply the number of elements in a set. Notice the pattern puts the tuples of $S$ so they appear to count from 0 to 9999.  We conclude there are 10000 possible 4 digit PINs that can be created from the numbers 0-9.  However, we need to be more mathematical in this approach because PINs are a very straightforward example and not all tuples can be so well-ordered.
+\subsubsection*{Mathematical Approach}
+Notice each digit of the pin number contains 10 possibilities (specifically a number from 0 to 9). We are allowed to reuse digits in a PIN (e.g. the number 3 can be used as many times as we like). 
+\begin{itemize}
+    \item We have 10 choices for $d_1$.
+    \item We still have 10 choices for $d_2$ after selecting $d_1$.
+    \item Similarly, there are 10 choices for $d_3$ and $d_4$.
+\end{itemize}
+This means there are $10 \cdot 10 \cdot 10 \cdot 10 = 10000$ possible 4 digit pins.
+\subsubsection*{Mathematical Summary}
+Consider an ordered tuple (order matters in a tuple) with $k$ coordinates. Each coordinate (entry) of the tuple comes from a set $D$ (domain) where $|D| = n$ (there are $n$ options in $D$). Let $S$ represent all possible tuples.  The number of possible tuples is given by the expression below. $$|S| = n^k$$
+
+\subsubsection*{Example}
+Suppose we need to create an 8 digit password composed of alphanumeric characters (lowercase letters, uppercase letters, and numbers 0-9). How many possible ways are there to create such a password?\\\\
+The domain (possible choices) $D = \{\underbrace{a,b,c,...,z}_{26},\underbrace{A,B,C,...,Z}_{26}, \underbrace{0,1,2,...,9}_{10}\}$ has a cardinality $|D| = 26+26+10 = 62$.  Let $S$ be the set of all possible 8 character passwords created using the elements of set $D$.  The total number of combinations $|S|$ is given as an expression below. $$|S| = 62^8 = 218340105584896$$
+To be clear, that is more than 218 trillion combinations.  Suppose a server makes a user wait one second between each failed password attempt.  In this case, it would take a hacker 6.924 million years to iterate through all possible passwords (one password a second).
+
+\subsection*{Factorials (Permutations - order matters)}
+In some cases, once an option has been used it cannot be reused.  Imagine that we need to line up 4 students in a specific order.  
+\begin{itemize}
+    \item We have 4 choices for the first student.
+    \item Once the first student was selected, that person is no longer available to be selected.  As such, we have 3 choices to select the next student.
+    \item Once the second was selected, there are 2 choices to select the third student.
+    \item After the third was selected, there is only one choice for the last student.
+\end{itemize}
+In this case there are $4 \cdot 3 \cdot 2 \cdot 1 = 24$ ways to order 4 students in a line.   Notice that we multiplied every integer starting with 4 down to 1 together.  This is a frequent calculation in mathematics known as a \emph{factorial} and is represented as an exclamation mark. $$4! = 4 \cdot 3 \cdot 2 \cdot 1 = 24$$
+Factorials are one of the iconic calculations used to teach students about recursive functions.  Below is Python code to calculate factorials using a simple for loop (assume $n\in \mathbb{W}$).
+\begin{lstlisting}[language=Python]
+def factorial(n) :
+    result = 1
+    for i in range(1,n+1): 
+        result *= i        
+    return result
+\end{lstlisting}
+Below is Python to calculate factorials using a recursive function (again assume $n \in \mathbb{W}$).
+
+\begin{lstlisting}[language=Python]
+def factorial(n) :
+    if (n<2):
+        return 1
+    return n*factorial(n-1)
+\end{lstlisting}
+
+Mathematically, permutations is the set of all the ordered tuples where no two coordinates can have the same value.
+
+It may seem strange, but notice that zero is a whole number (e.g. $0 \in \mathbb{W}$) and the code above implies that $0! = 1$.  This is the accepted value in mathematics for zero factorial.  After all, how many ways can you order 0 students?? This is another example of a vacuously true statement, but there is one way to order zero students. Specifically, a tuple with zero coordinates...kinda strange but the alternative creates contradictions.\\\\
+
+In some cases we may need to create ordered tuples, with no repeated values, without using all of the available options.  For example, suppose we need to select 3 students out of 6 and put them into a specific order.  In this case we have the following:
+\begin{itemize}
+    \item There are 6 choices for the first student.
+    \item There are 5 choices for the second student.
+    \item There are 4 choices for the third student.
+\end{itemize}
+
+This gives $6 \cdot 5 \cdot 4   = 120$ possible ways to select 3 students from 6 and put them in a specific order.    Notice we can not use $6!$ here because we are missing the $3,2,1$ values.  This can be represented as a fraction using factorials.
+$$\frac{6!}{3 \cdot 2 \cdot 1} = \frac{6!}{3!}$$
+This brings us to a generalized formula.
+\subsubsection*{Mathematical Summary}
+Suppose we need to form an ordered tuple with $k$ coordinates.  No two coordinates of the ordered tuple can have the same value (no repeats).  The values from the tuples must come from the set $D$ where $|D| = n$.  Obviously, it must be the case $k \leq n$ (since we are choosing $k$ distinct values from $n$ possible choices). The number of ways this can be accomplished is represented using the notation $nPn$ and is calculated using the expression below.
+$$nPk = \frac{n!}{(n-k)!}$$
+
+\subsubsection*{Example}
+Suppose an elementary school teacher needs to organize bins to hold school supplies.  The students are very young and not able to read labels.  The teacher decides to use colored bins.  She needs 7 bins for her project and there are 12 distinctly colored bins available. To make the supplies arrangement accessible to visually impaired students, she needs to make sure she orders the bins in a specific order. How many ways can the teacher select 7 of the 12 distinctly colored bins and put them in a specific order?
+$$12P7 = \frac{12!}{7!} = 95040$$
+
+\subsection*{Binomial Coefficient (order does not matter)}
+Suppose we have $n$ students and we need to select $k$ of them for a project.  We are not going to arrange the students in any specific order just merely select them for a task.  In circumstances where order does not matter, we are essentially creating subsets from a larger set.  For situations like this, we a tool known as the binomial coefficient.  The expression below is the formula for the binomial coefficient and it represents all the ways we can create subsets with $k$ elements (order does not matter) from a set having $n$ elements (remember sets do not contain duplicates).
+$$\binom{n}{k} = \frac{n!}{k! \cdot (n-k)!}$$
+You typically use this tool when you have the option to select items as a group with no regard for order.  You will notice that it looks very familiar to an earlier formula involving permutations.  In the previous formula (permutations) ordered mattered.  In this formula, order does not matter and the additional $k!$ in the denominator for the binomial coefficient removes the ordering component.  The $k!$ in the denominator essentially removes all the extra combinations that differed only by an ordering of the elements.
+
+\subsubsection*{Example}
+Suppose we need to select 7 students from a group of 12 to go on a field trip.  We are not going to line up the students or give them assigned seats.   We are simply just selecting 7 students as a group.   How many ways are there to select 7 students from a group of 12?
+$$\binom{12}{7} = \frac{12!}{7!} = \frac{12 \cdot 11 \cdot 10 \cdot 9 \cdot 8 \cdot 7!}{7!} = 12 \cdot 11 \cdot 10 \cdot 9 \cdot 8 = 792$$
+
+\subsubsection*{Computer/Calculator Caveats} 
+Notice the way the solution above was calculated.  Sure we could have simply used a calculator without all the simplifications.  However, a true computer scientists, engineer, and mathematician must be aware of hardware limits for computers.  In many languages, an integer only has 32 bit worth of precision before it \emph{overflows}. A signed 32 bit integer can only achieve $2^{31}-1 = 2147483647$ as a maximum value before an overflow happens (loops back around to a smaller number). That may seem like a very large value, but 12! is the largest factorial possible before hitting the overflow.  That means 13! will not be computed correctly using a signed integer in languages like C/C++ and Java.  Other languages, like Python, allow for arbitrary precision and will have no limitations (practically) in calculating factorials.  The tradeoff is that Python is slow compared to languages like C/C++ and Java.  These tradeoffs and caveat awareness is one of the distinctions between a programmer and a computer scientist. 
+Consider the C++ code below.
+\begin{lstlisting}[language=C]
+#include <iostream>
+#include <string>
+using namespace std;
+
+int factorial(int n) {
+    if (n==0 || n==1) {
+        return 1;
+    }
+    return n*factorial(n-1);
+}
+
+int choose(int n,int k) {
+    if (k<n) { return 0; }
+    return (factorial(n))/(factorial(k)*factorial(n-k));
+}
+
+int main(int argc, char* argv[]){
+  int n = atoi(argv[1]);
+  int k = atoi(argv[2]);
+  cout<<choose(n,k)<<endl;
+}
+\end{lstlisting}
+When the program compiled and asked to compute $\binom{12}{1}$ it returns the correct value of 12.  However, when it is asked to compute $\binom{13}{1}$ it should return the value 13 but returns the value 4 instead.   Certainly the number 13 is less than the $2^{31}-1$ limit.  However, look at the intermediate calculation.  It must first compute $13!$ which overflows the signed integer limit.  As a result the whole computation is compromised leading to the incorrect value of 4.  When computing binomial coefficients, a scientific calculator will often return a scientific notation response for values that do not traditionally need it to display a value.  This is due to the intermediate factorial calculation in the numerator of the binomial coefficient. Some scientific calculators, such as the \textbf{Casio FX-115ES Plus} has a binomial coefficient function that attempts to simplify the calculation, similar to the factoring used in the example, to help prevent scientific displays.  However, combinations tend to be large values and can grow very quickly as the paramters increase.
+
+\subsubsection*{Binomial Coefficient Symmetry}
+Consider the calculations below.
+\begin{align*}
+    \binom{12}{5} &= \frac{12!}{5! \cdot (12-5)!} = \frac{12!}{5! \cdot 7!} =  \frac{12!}{7! \cdot 5!} = \frac{12!}{7! \cdot (12-7)!} = \binom{12}{7}
+\end{align*}
+
+This symmetry will always be the case. In general, if $n = k_1 + k_2$ then we have the following
+$$\binom{n}{k_1} = \binom{n}{k_2}$$
+This can be expressed in an equivalent fashion.
+$$\binom{n}{k} = \binom{n}{n-k}$$
+The facts above imply that binomial coefficients increase in value as the value $k$ approaches $\frac{n}{2}$.  Once the value $k$ increases beyond $\frac{n}{2}$ the binomial coefficient value starts to decrease.  An example is given below.
+\begin{align*}
+    \binom{7}{0} &= \binom{7}{7} =1 \\
+    \binom{7}{1} &=  \binom{7}{6} = 7 \\
+    \binom{7}{2} &=  \binom{7}{5} = 21 \\
+    \binom{7}{3} &=  \binom{7}{4} = 35 
+\end{align*}
+\subsubsection*{Where did the name binomial coefficient originate?}
+Here is some extra information for the mathematically curious. From algebra, a binomial is a polynomial with two terms.  Specifically, lets consider the binomial $x+1$.  Notice the pattern below.
+\begin{align*}
+    (x+1)^1 &= x+1 = \binom{1}{0}x + \binom{1}{1} \\
+    (x+1)^2 &= (x+1)(x+1) = x^2 + 2x + 1 = \binom{2}{0}x^2 + \binom{2}{1}x + \binom{2}{2} \\
+    &\vdots\\
+    (x+1)^7 &= \underbrace{x^7 + 7x^6 + 21x^5 + 35x^4 + 35x^3 + 21x^2 + 7x + 1 = (x+2)^7}_{\binom{7}{0} x^7 + \binom{7}{1} x^6 + \binom{7}{2} x^5 + \binom{7}{3} x^4 + \binom{7}{4} x^3 + \binom{7}{5} x^2 + \binom{7}{6} x + \binom{7}{7}}
+\end{align*}
+
+Using symmetry, we have the following generalized expression for computing the \textbf{coefficients} of the \textbf{binomial} $x+1$.
+$$(x+1)^n = \sum\limits_{i=0}^n \binom{n}{i} \cdot x^i$$
+Now you know where the name originates.

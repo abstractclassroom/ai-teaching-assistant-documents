@@ -1,0 +1,20 @@
+\section*{Problem 10}
+\subsection*{Question Prompt}
+Prove the following statement: In a multi-unit request system, a knot in the Resource Allocation Graph
+is not necessary for deadlock, even if the Resource allocation graph is expedient (i.e., give a counter
+example).
+
+\subsection*{Solution}
+Below is an example of a resource allocation graph with the following properties.
+\begin{itemize}
+    \item Expedient - Are satisfiable request edges are essentially allocation edges.
+    \item Multi-unit - $R_2$ has more than one unit.
+    \item Not A Knot - There exists a node that is not reachable from another node. Specifically, node $p_2$ can not be reached from $p_1$.
+    \item Deadlock - The graph represents a potential deadlock that requires all nodes.
+\end{itemize}
+The graph below represents a potential deadlock, entire graph is not a knot, and is expedient.
+\begin{figure}[h]
+\caption{Potential Deadlock Resource Allocation Graph }
+\centering
+\includegraphics[width=0.5\textwidth]{images/20221017_200240.jpg}
+\end{figure}
