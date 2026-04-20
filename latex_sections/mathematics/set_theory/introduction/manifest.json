@@ -1,0 +1,36 @@
+{
+  "description": "Introduce sets as fundamental mathematical containers, show standard set notation, define elements and membership symbols, and present key properties and common ways to represent sets.",
+  "objectives": [
+    "Understand the convenience of referencing objects by encapsulating them in sets.",
+    "Understand the notation for indicating whether an object is an element of a set.",
+    "Know the benefits and caveats associated with the three primary ways of declaring/representing sets.",
+    "Be able to convert sets from one form to another.",
+    "Be aware that sets can contain other sets."
+  ],
+  "prerequisites": [
+    "These lecture notes are foundational and do not require any other foundational knowledge.",
+    "Students with knowledge of programming languages will likely find the encapsulating applications of sets more familiar."
+  ],
+  "content_list": [
+    {
+      "subdirectory": "purpose",
+      "title": "Purpose of Mathematical sets",
+      "description": "Motivate sets as mathematical containers for organizing and referencing objects, and introduce basic set notation and examples."
+    },
+    {
+      "subdirectory": "set_elements",
+      "title": "Set Elements",
+      "description": "Define what set elements are and use symbolic mathematical notation to indicate whether an object is an element of a set."
+    },
+    {
+      "subdirectory": "properties_of_sets",
+      "title": "Properties Of Sets",
+      "description": "Explain the two core properties of sets: order does not matter and duplicates are not included."
+    },
+    {
+      "subdirectory": "methods_to_represent_sets",
+      "title": "Methods To Represent Sets",
+      "description": "Compare sentence, roster, and set-builder representations, including when each is appropriate and how to read/write them."
+    }
+  ]
+}
